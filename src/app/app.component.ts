@@ -13,8 +13,6 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'Todo App';
   todos: ITodo[] = [];
 
-  selectedTodo?: ITodo;
-
   todo = "";
 
   private todoSubscriptions: Subscription[] = [];
