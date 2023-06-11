@@ -1,6 +1,6 @@
 <div class="flex items-center justify-center h-screen">
 
-  <div class="bg-white p-4">
+  <div class="bg-white p-4 rounded-md">
     <h1 class="text-2xl font-medium ">{{title}}</h1>
 
     <div class="flex space-x-2 w-96 my-4">
@@ -13,7 +13,8 @@
 
     <ul class="h-60 overflow-y-auto space-y-2">
       <li *ngFor="let todo of todos" class="bg-gray-100 rounded-md h-12 flex items-center justify-between">
-        <div class="px-4 text-gray-800 w-80 overflow-hidden whitespace-nowrap text-ellipsis tracking-wide ">
+        <div
+          class="px-4 text-gray-800 w-80 overflow-hidden whitespace-nowrap text-ellipsis tracking-wide font-semibold ">
           {{todo.name}}</div>
         <button (click)="deleteTodo(todo)"
           class="w-12 h-12 bg-red-500 inline-flex items-center justify-center rounded-r-md">
@@ -23,9 +24,9 @@
     </ul>
 
     <div class="flex items-center justify-between py-4 px-2">
-      <span *ngIf="totalTodo">You have {{totalTodo}} pending tasks</span>
-      <span *ngIf="!totalTodo">You have no tasks</span>
-      <button (click)="clearAll()" class="px-4 py-2 bg-[#8C4AE0] text-white rounded-md">Clear All</button>
+      <span *ngIf="totalTodo" class="font-semibold">You have {{totalTodo}} pending {{totalTodo > 1? 'tasks': 'task'}}</span>
+      <span *ngIf="!totalTodo" class="font-semibold">You have no any tasks</span>
+      <button (click)="clearAll()" class="px-4 py-2 bg-[#8C4AE0] text-white font-semibold rounded-md">Clear All</button>
     </div>
   </div>
 </div>
