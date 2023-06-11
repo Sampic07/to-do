@@ -1,0 +1,8 @@
+li button {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+li:hover button {
+    opacity: 1;
+}
