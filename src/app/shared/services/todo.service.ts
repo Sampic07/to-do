@@ -32,7 +32,7 @@ export class TodoService {
   }
 
   private get _newId(): number {
-    return this._todos.length > 0 ? ++this._todos[this._todos.length - 1].id! : 1;
+    return this._todos.length > 0 ? ++this._todos[this._todos.length - 1].$id! : 1;
   }
 
   private get _todos(): ITodo[] {
@@ -46,7 +46,7 @@ export class TodoService {
   }
 
   private _removeTodo(id: number) {
-    const todos = this._todos.filter(t => t.id !== id)
+    const todos = this._todos.filter(t => t.$id !== id)
     localStorage.setItem(TODOS, JSON.stringify(todos));
   }
 }

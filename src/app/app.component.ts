@@ -40,7 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   deleteTodo(todo: ITodo): void {
     const index = this.todos.indexOf(todo);
-    this._todoSvc.deleteById(todo.id!).subscribe(id => this.todos.splice(index, 1));
+    this._todoSvc.deleteById(todo.$id!).subscribe(id => this.todos.splice(index, 1));
   }
 
   clearAll(): void {
