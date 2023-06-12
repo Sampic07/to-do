@@ -1,8 +1,33 @@
 li button {
-    opacity: 0;
-    transition: opacity 0.5s;
+    animation: swipe-hide 100ms ease forwards;
 }
 
 li:hover button {
-    opacity: 1;
+    animation: swipe-visible 100ms ease forwards;
+}
+
+ul {
+    max-height: calc(100vh - 300px);
+}
+
+.disabled-button {
+    opacity: 0.7;
+}
+
+@keyframes swipe-visible {
+    from {
+        transform: translateX(101%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes swipe-hide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }

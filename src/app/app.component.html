@@ -1,23 +1,23 @@
 <div class="flex items-center justify-center h-screen">
 
-  <div class="bg-white p-4 rounded-md">
+  <div class="bg-white p-4 rounded-md w-80 md:w-96 text-sm md:text-base">
     <h1 class="text-2xl font-medium ">{{title}}</h1>
 
-    <div class="flex space-x-2 w-96 my-4">
+    <div class="flex space-x-2 my-4">
       <input [(ngModel)]="todo" (keyup.enter)="createTodo()"
         class="h-12 border rounded-md py-2 px-4 outline-none w-full" type="text" placeholder="Add your new todo" />
-      <button (click)="createTodo()" class="w-16 h-12 bg-[#8C4AE0] inline-flex items-center justify-center rounded-md">
+      <button [class.disabled-button]="!todo" [disabled]="!todo" (click)="createTodo()" class="w-16 h-12 bg-[#8C4AE0] inline-flex items-center justify-center rounded-md">
         <svg-icon src="assets/icons/plus.svg" class="fill-white"></svg-icon>
       </button>
     </div>
 
-    <ul class="h-60 overflow-y-auto space-y-2">
-      <li *ngFor="let todo of todos" class="bg-gray-100 rounded-md h-12 flex items-center justify-between">
+    <ul class="overflow-y-auto space-y-2 overflow-x-hidden">
+      <li *ngFor="let todo of todos" class="bg-gray-100 rounded-md h-12 flex items-center justify-between relative">
         <div
-          class="px-4 text-gray-800 w-80 overflow-hidden whitespace-nowrap text-ellipsis tracking-wide font-semibold ">
+          class="px-4 text-gray-800 overflow-hidden whitespace-nowrap text-ellipsis tracking-wide font-semibold ">
           {{todo.name}}</div>
         <button (click)="deleteTodo(todo)"
-          class="w-12 h-12 bg-red-500 inline-flex items-center justify-center rounded-r-md">
+          class="w-12 h-12 bg-red-500 inline-flex items-center justify-center rounded-r-md absolute end-0">
           <svg-icon src="assets/icons/trash.svg" class="w-7 h-7 fill-white"></svg-icon>
         </button>
       </li>
