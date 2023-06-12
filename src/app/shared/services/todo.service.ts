@@ -12,7 +12,7 @@ export class TodoService {
   constructor() { }
 
   createTodo(todo: ITodo): Observable<ITodo> {
-    const newTodo = { id: this._newId, name: todo.name }
+    const newTodo = { $id: this._newId, name: todo.name }
     this._addTodo(newTodo);
     return of(newTodo);
   }
